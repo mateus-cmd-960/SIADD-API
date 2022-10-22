@@ -3,32 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tipo_membro;
+use App\Models\Turma;
 
-class TipoMembroController extends Controller
+class TurmaController extends Controller
 {
     public function index(){
-        $tipo_membros=Tipo_membro::all();
+        $turmas=Turma::all();
 
-        return response()->json(['tipo_membros'=>$tipo_membros], 200);
+        return response()->json(['turmas'=>$turmas], 200);
     }
 
     public function store(Request $request){
-        $tipo_membro=new Tipo_membro;
+        $turma=new Turma;
 
-        $tipo_membro->descricao=$request->descricao;
-        $tipo_membro->save();
+        $turma->descricao=$request->descricao;
+        $turma->save();
 
         return response()->json(['messagem'=>'adicionado'], 200);
     }
 
     public function update(Request $request, $id){
 
-        $tipo_membro=Tipo_membro::find($id);
+        $turma=Turma::find($id);
 
-        If($tipo_membro){
-            $tipo_membro->descricao=$request->descricao;
-            $tipo_membro->update();
+        If($turma){
+            $turma->descricao=$request->descricao;
+            $turma->update();
 
             return response()->json(['messagem'=>'atualizado'], 200);
         }else{
@@ -37,7 +37,7 @@ class TipoMembroController extends Controller
     }
 
     public function destroy($id){
-        $tipo_membro=Tipo_membro::find($id);
+        $tipo_membro=Turma::find($id);
         if($tipo_membro){
             $tipo_membro->delete();
 

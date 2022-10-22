@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dimensao extends Model
+class Curso extends Model
 {
     use HasFactory;
-    protected $table='dimensaos';
+    protected $table='cursos';
     protected $fillable=[
         'descricao',
     ];
-
-    public function avaliacao(){
-        return $this->BelongsToMany('App\Models\Avaliacao');
-    }
 }

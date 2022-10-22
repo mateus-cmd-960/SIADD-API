@@ -3,32 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tipo_membro;
+use App\Models\Unidade_organica;
 
-class TipoMembroController extends Controller
+class UnidadeOrganicaController extends Controller
 {
     public function index(){
-        $tipo_membros=Tipo_membro::all();
+        $unidade_organicas=Unidade_organica::all();
 
-        return response()->json(['tipo_membros'=>$tipo_membros], 200);
+        return response()->json(['unidade_organicas'=>$unidade_organicas], 200);
     }
 
     public function store(Request $request){
-        $tipo_membro=new Tipo_membro;
+        $unidade_organica=new Unidade_organica;
 
-        $tipo_membro->descricao=$request->descricao;
-        $tipo_membro->save();
+        $unidade_organica->descricao=$request->descricao;
+        $unidade_organica->save();
 
         return response()->json(['messagem'=>'adicionado'], 200);
     }
 
     public function update(Request $request, $id){
 
-        $tipo_membro=Tipo_membro::find($id);
+        $unidade_organica=Unidade_organica::find($id);
 
-        If($tipo_membro){
-            $tipo_membro->descricao=$request->descricao;
-            $tipo_membro->update();
+        If($unidade_organica){
+            $unidade_organica->descricao=$request->descricao;
+            $unidade_organica->update();
 
             return response()->json(['messagem'=>'atualizado'], 200);
         }else{
@@ -37,7 +37,7 @@ class TipoMembroController extends Controller
     }
 
     public function destroy($id){
-        $tipo_membro=Tipo_membro::find($id);
+        $tipo_membro=Unidade_organica::find($id);
         if($tipo_membro){
             $tipo_membro->delete();
 

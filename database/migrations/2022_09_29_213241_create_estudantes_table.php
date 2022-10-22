@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cad_membro', function (Blueprint $table) {
-           $table->foreignId('cad_id')->constrained();
-           $table->foreignId('membro_id')->constrained();
+        Schema::create('estudantes', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->integer('n_processo');
+            $table->text('bilhete');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cad_membro');
+        Schema::dropIfExists('estudantes');
     }
 };

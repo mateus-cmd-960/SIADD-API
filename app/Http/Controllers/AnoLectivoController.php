@@ -3,32 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tipo_membro;
+use App\Models\Ano_lectivo;
 
-class TipoMembroController extends Controller
+class AnoLectivoController extends Controller
 {
     public function index(){
-        $tipo_membros=Tipo_membro::all();
+        $ano_lectivos=Ano_lectivo::all();
 
-        return response()->json(['tipo_membros'=>$tipo_membros], 200);
+        return response()->json(['ano_lectivos'=>$ano_lectivo], 200);
     }
 
     public function store(Request $request){
-        $tipo_membro=new Tipo_membro;
+        $ano_lectivo=new Ano_lectivo;
 
-        $tipo_membro->descricao=$request->descricao;
-        $tipo_membro->save();
+        $ano_lectivo->descricao=$request->descricao;
+        $ano_lectivo->save();
 
         return response()->json(['messagem'=>'adicionado'], 200);
     }
 
     public function update(Request $request, $id){
 
-        $tipo_membro=Tipo_membro::find($id);
+        $ano_lectivo=Ano_lectivo::find($id);
 
-        If($tipo_membro){
-            $tipo_membro->descricao=$request->descricao;
-            $tipo_membro->update();
+        If($ano_lectivo){
+            $ano_lectivo->descricao=$request->descricao;
+            $ano_lectivo->update();
 
             return response()->json(['messagem'=>'atualizado'], 200);
         }else{
@@ -37,9 +37,9 @@ class TipoMembroController extends Controller
     }
 
     public function destroy($id){
-        $tipo_membro=Tipo_membro::find($id);
-        if($tipo_membro){
-            $tipo_membro->delete();
+        $ano_lectivo=Ano_lectivo::find($id);
+        if($ano_lectivo){
+            $ano_lectivo->delete();
 
             return response()->json(['messagem'=>'nao encontrado'], 404);
         }

@@ -9,5 +9,11 @@ class Avaliacao extends Model
 {
     use HasFactory;
 
-    
+    public function professor(){
+        return $this->BelongsToMany('App\Models\Professor');
+    }
+
+    public function dimensao(){
+        return $this->BelongsToMany('App\Models\Dimensao');
+    }
 }

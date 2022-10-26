@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-nginx public/.htacess 
+web: vendor/bin/heroku-php-apache2 public/ 

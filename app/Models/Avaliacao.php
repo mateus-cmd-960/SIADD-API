@@ -16,4 +16,8 @@ class Avaliacao extends Model
     public function dimensao(){
         return $this->BelongsToMany('App\Models\Dimensao');
     }
+
+    public function cads(){
+        return $this->BelongToMany('App\Models\Cad');
+    }
 }

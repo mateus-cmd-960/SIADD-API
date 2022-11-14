@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacaos', function (Blueprint $table) {
-            $table->id();
-            $table->decimal('resposta');
+        Schema::create('avaliacao_cad', function (Blueprint $table) {
+            $table->foreignId('avaliacao_id')->constrained();
+            $table->foreignId('cad_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avaliacaos');
+        Schema::dropIfExists('avaliacao_cad');
     }
 };

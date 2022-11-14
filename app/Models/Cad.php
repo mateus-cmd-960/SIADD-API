@@ -16,4 +16,8 @@ class Cad extends Model
         'descricao',
         'titulo',
     ];
+
+    public function avaliacao(){
+        return $this->BelongsToMany('App\Models\Avaliacao');
+    }
 }
